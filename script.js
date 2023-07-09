@@ -3,8 +3,6 @@ const errorMessage = document.querySelector(".error-message");
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-
-  e.preventDefault();
   grecaptcha.ready(function () {
     grecaptcha
       .execute("6LczTQwnAAAAAHnvd5iqxBv1eelAa770OPdnEVaR", { action: "submit" })
