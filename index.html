@@ -8,7 +8,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script
+      src="https://www.google.com/recaptcha/api.js?render=6LczTQwnAAAAAHnvd5iqxBv1eelAa770OPdnEVaR"
+      async
+      defer
+    ></script>
   </head>
   <body>
     <div class="container">
@@ -24,11 +28,13 @@
           placeholder="Enter your email"
           required
         />
-        <div
-          class="g-recaptcha"
-          data-sitekey="6LczTQwnAAAAAHnvd5iqxBv1eelAa770OPdnEVaR"
-        ></div>
-        <button class="cta-button" type="submit">Join Now</button>
+        <button
+          class="cta-button"
+          data-callback="onSubmit"
+          data-action="submit"
+        >
+          Join Now
+        </button>
         <div class="error-message"></div>
       </form>
     </div>

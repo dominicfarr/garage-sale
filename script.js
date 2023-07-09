@@ -4,29 +4,33 @@ const errorMessage = document.querySelector(".error-message");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const email = form.elements.email.value;
-  if (validateEmail(email)) {
-    saveEmailAddress(email);
-    showThankYouMessage();
-  } else {
-    showErrorMessage("Please enter a valid email address.");
-  }
+  e.preventDefault();
+  grecaptcha.ready(function () {
+    grecaptcha
+      .execute("6LczTQwnAAAAAHnvd5iqxBv1eelAa770OPdnEVaR", { action: "submit" })
+      .then(function (token) {
+        console.log("reCap token ", token);
+
+        const email = form.elements.email.value;
+        if (validateEmail(email)) {
+          saveEmailAddress(email);
+          showThankYouMessage();
+        } else {
+          showErrorMessage("Please enter a valid email address.");
+        }
+      });
+  });
 });
 
 function validateEmail(email) {
   // Add your email validation logic here, or use HTML5 email validation by setting the 'pattern' attribute on the input element.
   // Return true if the email is valid; otherwise, return false.
+  return true;
 }
 
 function saveEmailAddress(email) {
   // Implement your backend or data storage logic to save the email address securely.
   // Ensure compliance with global data protection regulations (e.g., GDPR).
-  const response = grecaptcha.getResponse();
-  console.log("reCap Res ", response);
-  if (response === "") {
-    // Show an error message or take appropriate action if reCAPTCHA validation fails.
-    return;
-  }
 }
 
 function showThankYouMessage() {
