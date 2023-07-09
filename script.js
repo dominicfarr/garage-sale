@@ -21,6 +21,12 @@ function validateEmail(email) {
 function saveEmailAddress(email) {
   // Implement your backend or data storage logic to save the email address securely.
   // Ensure compliance with global data protection regulations (e.g., GDPR).
+  const response = grecaptcha.getResponse();
+  console.log("reCap Res ", response);
+  if (response === "") {
+    // Show an error message or take appropriate action if reCAPTCHA validation fails.
+    return;
+  }
 }
 
 function showThankYouMessage() {
