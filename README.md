@@ -1,4 +1,4 @@
-# Garage Sale a fictional site built execlusively via GPT-3
+# Garage Sale - A fictional site built execlusively via GPT-3
 
 Can you build a functioning website from the dialog and output from Chat GPT?
 
